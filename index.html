@@ -260,82 +260,302 @@ footer p {
 </section>
 </main><section class="container" id="services">
   <h2 class="section-title">आमच्या सेवा</h2>
-  <p class="intro">
-    विविध ऑनलाइन सेवा आणि अर्ज प्रक्रियेसाठी सहाय्य.
-    संबंधित सेवा, पात्रता आणि उपलब्धता तपासून घ्या.
+  <p style="text-align:center;color:#526174;margin-bottom:22px;">
+    आपल्या गरजेनुसार सेवा निवडा आणि अधिक माहिती पाहा.
   </p>
 
-  <div class="grid">
-    <article class="card">
-      <h3>पॅन कार्ड</h3>
-      <p>नवीन पॅन कार्ड आणि दुरुस्ती अर्जासाठी सहाय्य.</p>
-    </article>
+  <style>
+    #services .service-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
 
-    <article class="card">
-      <h3>आधार सेवा</h3>
-      <p>आधार प्रिंट आणि उपलब्ध आधार-संबंधित सेवांसाठी मार्गदर्शन.</p>
-    </article>
+    #services .service-dropdown {
+      position: relative;
+      min-width: 0;
+    }
 
-    <article class="card">
-      <h3>आयुष्मान भारत कार्ड</h3>
-      <p>पात्रतेनुसार आयुष्मान कार्ड प्रक्रियेसाठी सहाय्य.</p>
-    </article>
+    #services .service-btn {
+      width: 100%;
+      min-height: 56px;
+      padding: 12px 10px;
+      border: 1px solid #cbdcf1;
+      border-radius: 10px;
+      background: #edf5ff;
+      color: #123d70;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.5;
+    }
 
-    <article class="card">
-      <h3>ABHA कार्ड</h3>
-      <p>आभा हेल्थ अकाउंट तयार करण्यासाठी सहाय्य.</p>
-    </article>
+    #services .service-btn:hover,
+    #services .service-btn:focus-visible {
+      background: #1558a6;
+      color: white;
+    }
 
-    <article class="card">
-      <h3>मतदार कार्ड</h3>
-      <p>नवीन मतदार नोंदणी आणि उपलब्ध दुरुस्ती अर्जांसाठी सहाय्य.</p>
-    </article>
+    #services .service-submenu {
+      display: none;
+      position: absolute;
+      z-index: 100;
+      top: calc(100% + 3px);
+      left: 0;
+      width: 250px;
+      max-width: 85vw;
+      padding: 7px;
+      background: white;
+      border: 1px solid #cbdcf1;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px #0002;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-    <article class="card">
-      <h3>ई-श्रम कार्ड</h3>
-      <p>पात्र असंघटित कामगारांच्या नोंदणी प्रक्रियेसाठी सहाय्य.</p>
-    </article>
+    #services .service-dropdown:hover .service-submenu,
+    #services .service-dropdown:focus-within .service-submenu,
+    #services .service-dropdown.open .service-submenu {
+      display: flex;
+    }
 
-    <article class="card">
-      <h3>फार्मर आयडी</h3>
-      <p>शेतकरी ओळखपत्रासाठी उपलब्ध नोंदणी प्रक्रियेत सहाय्य.</p>
-    </article>
+    #services .service-submenu button {
+      width: 100%;
+      padding: 11px;
+      border: 0;
+      border-radius: 7px;
+      background: #f1f6fc;
+      color: #173d65;
+      text-align: left;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
-    <article class="card">
-      <h3>पीएम किसान</h3>
-      <p>योजनेच्या उपलब्ध अर्ज आणि प्रक्रियेसाठी मार्गदर्शन.</p>
-    </article>
+    #services .service-submenu button:hover {
+      background: #dcecff;
+    }
 
-    <article class="card">
-      <h3>महा सारथी</h3>
-      <p>योजनेच्या उपलब्ध सेवांसाठी अर्ज सहाय्य.</p>
-    </article>
+    #services .service-details {
+      margin-top: 24px;
+      padding: 22px;
+      background: #f5f9ff;
+      border: 1px solid #d5e5f8;
+      border-left: 5px solid #1558a6;
+      border-radius: 12px;
+    }
 
-    <article class="card">
-      <h3>श्रमयोगी मानधन</h3>
-      <p>पात्रतेनुसार नोंदणी प्रक्रियेसाठी सहाय्य.</p>
-    </article>
+    #services .service-details h3 {
+      margin: 0 0 10px;
+      color: #12477f;
+    }
 
-    <article class="card">
-      <h3>फूड लायसन्स</h3>
-      <p>FSSAI नोंदणी आणि परवाना अर्जासाठी सहाय्य.</p>
-    </article>
+    #services .service-details p {
+      margin: 0;
+      line-height: 1.8;
+      color: #34465a;
+    }
 
-    <article class="card">
-      <h3>पासपोर्ट अर्ज</h3>
-      <p>नवीन पासपोर्ट, नूतनीकरण आणि उपलब्ध अर्ज प्रक्रियेसाठी सहाय्य.</p>
-    </article>
+    @media (max-width: 700px) {
+      #services .service-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
 
-    <article class="card">
-      <h3>विविध दाखले</h3>
-      <p>उपलब्ध ऑनलाइन दाखले आणि अर्ज प्रक्रियेबाबत मार्गदर्शन.</p>
-    </article>
+      #services .service-btn {
+        font-size: 13px;
+        min-height: 58px;
+      }
 
-    <article class="card">
-      <h3>इतर ऑनलाइन सेवा</h3>
-      <p>विविध उपलब्ध शासकीय सेवा आणि ऑनलाइन अर्जांसाठी संपर्क साधा.</p>
-    </article>
+      #services .service-submenu {
+        position: static;
+        width: 100%;
+        max-width: none;
+        margin-top: 5px;
+        box-shadow: none;
+      }
+
+      #services .service-dropdown.open .service-submenu {
+        display: flex;
+      }
+
+      #services .service-details {
+        padding: 16px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #services .service-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="service-list">
+
+    <!-- 1. PAN CARD -->
+    <div class="service-dropdown">
+      <button type="button" class="service-btn" data-toggle>
+        पॅन कार्ड ▾
+      </button>
+      <div class="service-submenu">
+        <button type="button" data-service="नवीन पॅन कार्ड">नवीन पॅन कार्ड</button>
+        <button type="button" data-service="पॅन कार्ड अपडेट">पॅन कार्ड अपडेट</button>
+        <button type="button" data-service="पॅन कार्ड रिईश्यू">पॅन कार्ड रिईश्यू</button>
+      </div>
+    </div>
+
+    <!-- 2–9 -->
+    <button type="button" class="service-btn" data-service="आधार पत्ता अपडेट">आधार पत्ता अपडेट</button>
+    <button type="button" class="service-btn" data-service="आभा कार्ड">आभा कार्ड</button>
+    <button type="button" class="service-btn" data-service="आयुष्यमान कार्ड">आयुष्यमान कार्ड</button>
+    <button type="button" class="service-btn" data-service="वय वंदना कार्ड">वय वंदना कार्ड</button>
+    <button type="button" class="service-btn" data-service="ई श्रम कार्ड">ई श्रम कार्ड</button>
+    <button type="button" class="service-btn" data-service="श्रमयोगी मानधन योजना कार्ड">श्रमयोगी मानधन योजना कार्ड</button>
+    <button type="button" class="service-btn" data-service="महा आयडी कार्ड">महा आयडी कार्ड</button>
+    <button type="button" class="service-btn" data-service="फार्मर आयडी">फार्मर आयडी</button>
+    <button type="button" class="service-btn" data-service="पासपोर्ट सर्विसेस">पासपोर्ट सर्विसेस</button>
+
+    <!-- 10. RATION CARD -->
+    <div class="service-dropdown">
+      <button type="button" class="service-btn" data-toggle>
+        रेशन कार्ड सर्विसेस ▾
+      </button>
+      <div class="service-submenu">
+        <button type="button" data-service="नवीन डिजिटल रेशन कार्ड">नवीन डिजिटल रेशन कार्ड</button>
+        <button type="button" data-service="रेशन कार्ड अपडेट">रेशन कार्ड अपडेट</button>
+        <button type="button" data-service="रेशन कार्ड पत्ता बदल">रेशन कार्ड पत्ता बदल</button>
+        <button type="button" data-service="रेशन कार्डवरील नाव कमी-जास्त करणे">रेशन कार्डवरील नाव कमी-जास्त करणे</button>
+      </div>
+    </div>
+
+    <!-- 11–25 -->
+    <button type="button" class="service-btn" data-service="पोलीस चारित्र्य प्रमाणपत्र">पोलीस चारित्र्य प्रमाणपत्र</button>
+    <button type="button" class="service-btn" data-service="गॅझेट (राजपत्र)">गॅझेट (राजपत्र)</button>
+    <button type="button" class="service-btn" data-service="हयातीचा दाखला">हयातीचा दाखला</button>
+    <button type="button" class="service-btn" data-service="सातबारा / ८अ / फेरफार / प्रॉपर्टी कार्ड">सातबारा / ८अ / फेरफार / प्रॉपर्टी कार्ड</button>
+    <button type="button" class="service-btn" data-service="पी एम किसान योजना">पी एम किसान योजना</button>
+    <button type="button" class="service-btn" data-service="बांधकाम कामगार योजना">बांधकाम कामगार योजना</button>
+    <button type="button" class="service-btn" data-service="ईपीएफओ सर्विसेस">ईपीएफओ सर्विसेस</button>
+    <button type="button" class="service-btn" data-service="रेल्वे तिकीट बुकिंग">रेल्वे तिकीट बुकिंग</button>
+    <button type="button" class="service-btn" data-service="विमान तिकीट बुकिंग">विमान तिकीट बुकिंग</button>
+    <button type="button" class="service-btn" data-service="शॉप ॲक्ट">शॉप ॲक्ट</button>
+    <button type="button" class="service-btn" data-service="उद्यम रजिस्ट्रेशन">उद्यम रजिस्ट्रेशन</button>
+    <button type="button" class="service-btn" data-service="फूड लायसन">फूड लायसन</button>
+    <button type="button" class="service-btn" data-service="जीएसटी सर्टिफिकेट रजिस्ट्रेशन">जीएसटी सर्टिफिकेट रजिस्ट्रेशन</button>
+    <button type="button" class="service-btn" data-service="आयटीआर">आयटीआर</button>
+
+    <!-- 26. AAPLE SARKAR SERVICES -->
+    <div class="service-dropdown">
+      <button type="button" class="service-btn" data-toggle>
+        आपले सरकार सेवा ▾
+      </button>
+      <div class="service-submenu">
+        <button type="button" data-service="उत्पन्न दाखला">उत्पन्न दाखला</button>
+        <button type="button" data-service="रहिवासी दाखला">रहिवासी दाखला</button>
+        <button type="button" data-service="जात प्रमाणपत्र">जात प्रमाणपत्र</button>
+        <button type="button" data-service="नॉन क्रिमिलियर दाखला">नॉन क्रिमिलियर दाखला</button>
+        <button type="button" data-service="ईडब्ल्यूएस (EWS) दाखला">ईडब्ल्यूएस (EWS) दाखला</button>
+        <button type="button" data-service="एसईबीसी (SEBC) दाखला">एसईबीसी (SEBC) दाखला</button>
+        <button type="button" data-service="जात पडताळणी">जात पडताळणी</button>
+        <button type="button" data-service="डोंगरी दाखला">डोंगरी दाखला</button>
+      </div>
+    </div>
+
   </div>
+
+  <div class="service-details" id="service-details" aria-live="polite">
+    <h3 id="service-title">सेवेची माहिती</h3>
+    <p id="service-description">
+      वरील यादीमधून सेवेचे बटण निवडा. त्या सेवेची माहिती येथे दिसेल.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById("services");
+      if (!root) return;
+
+      const descriptions = {
+        "नवीन पॅन कार्ड": "नवीन पॅन कार्ड अर्जासाठी मार्गदर्शन व अर्ज सहाय्य.",
+        "पॅन कार्ड अपडेट": "पॅन कार्डमधील उपलब्ध तपशील दुरुस्ती किंवा अपडेटसाठी अर्ज सहाय्य.",
+        "पॅन कार्ड रिईश्यू": "पॅन कार्ड पुन्हा मिळवण्यासाठी किंवा पुनर्मुद्रणासाठी अर्ज सहाय्य.",
+        "आधार पत्ता अपडेट": "आधार पत्त्यात बदल करण्यासाठी उपलब्ध प्रक्रियेनुसार मार्गदर्शन.",
+        "आभा कार्ड": "ABHA हेल्थ आयडी तयार करण्यासाठी अर्ज सहाय्य.",
+        "आयुष्यमान कार्ड": "पात्रतेनुसार आयुष्मान भारत कार्ड प्रक्रियेसाठी सहाय्य.",
+        "वय वंदना कार्ड": "वय वंदना कार्डसंबंधी उपलब्ध सेवा व पात्रतेबाबत मार्गदर्शन.",
+        "ई श्रम कार्ड": "ई-श्रम नोंदणीसाठी अर्ज सहाय्य.",
+        "श्रमयोगी मानधन योजना कार्ड": "पात्रतेनुसार श्रमयोगी मानधन योजनेच्या नोंदणीसाठी सहाय्य.",
+        "महा आयडी कार्ड": "महा आयडी नोंदणी व संबंधित प्रक्रियेसाठी सहाय्य.",
+        "फार्मर आयडी": "शेतकरी ओळखपत्र नोंदणीसाठी अर्ज सहाय्य.",
+        "पासपोर्ट सर्विसेस": "नवीन पासपोर्ट, नूतनीकरण आणि उपलब्ध दुरुस्ती सेवांसाठी अर्ज सहाय्य.",
+        "नवीन डिजिटल रेशन कार्ड": "नवीन डिजिटल रेशन कार्ड अर्जासाठी मार्गदर्शन.",
+        "रेशन कार्ड अपडेट": "रेशन कार्डमधील उपलब्ध तपशील अपडेट करण्यासाठी सहाय्य.",
+        "रेशन कार्ड पत्ता बदल": "रेशन कार्डवरील पत्ता बदलण्यासाठी अर्ज सहाय्य.",
+        "रेशन कार्डवरील नाव कमी-जास्त करणे": "रेशन कार्डमध्ये नाव समाविष्ट करणे किंवा वगळण्यासाठी अर्ज सहाय्य.",
+        "पोलीस चारित्र्य प्रमाणपत्र": "पोलीस चारित्र्य प्रमाणपत्रासाठी अर्ज प्रक्रियेचे मार्गदर्शन.",
+        "गॅझेट (राजपत्र)": "राजपत्र प्रसिद्ध करण्याच्या अर्ज प्रक्रियेसाठी सहाय्य.",
+        "हयातीचा दाखला": "हयातीच्या दाखल्यासाठी उपलब्ध अर्ज प्रक्रियेत सहाय्य.",
+        "सातबारा / ८अ / फेरफार / प्रॉपर्टी कार्ड": "जमिनीचे अभिलेख व प्रॉपर्टी कार्डसंबंधी उपलब्ध ऑनलाइन सेवांसाठी सहाय्य.",
+        "पी एम किसान योजना": "पीएम किसान योजनेच्या नोंदणी व उपलब्ध ऑनलाइन सेवांसाठी सहाय्य.",
+        "बांधकाम कामगार योजना": "बांधकाम कामगार नोंदणी व उपलब्ध योजना सेवांसाठी अर्ज सहाय्य.",
+        "ईपीएफओ सर्विसेस": "EPFO संबंधित उपलब्ध ऑनलाइन सेवा व अर्ज प्रक्रियेसाठी सहाय्य.",
+        "रेल्वे तिकीट बुकिंग": "रेल्वे तिकीट बुकिंगसाठी उपलब्ध सेवेनुसार सहाय्य.",
+        "विमान तिकीट बुकिंग": "विमान तिकीट बुकिंगसाठी उपलब्ध सेवेनुसार सहाय्य.",
+        "शॉप ॲक्ट": "शॉप ॲक्ट नोंदणी किंवा संबंधित अर्ज प्रक्रियेसाठी सहाय्य.",
+        "उद्यम रजिस्ट्रेशन": "उद्यम नोंदणीसाठी अर्ज सहाय्य.",
+        "फूड लायसन": "FSSAI फूड लायसन नोंदणी व उपलब्ध बदलांसाठी अर्ज सहाय्य.",
+        "जीएसटी सर्टिफिकेट रजिस्ट्रेशन": "GST नोंदणी व प्रमाणपत्र प्रक्रियेसाठी अर्ज सहाय्य.",
+        "आयटीआर": "आयकर विवरणपत्र (ITR) भरण्यासाठी उपलब्ध सेवेनुसार सहाय्य.",
+        "उत्पन्न दाखला": "उत्पन्न दाखल्यासाठी ऑनलाइन अर्ज प्रक्रियेत सहाय्य.",
+        "रहिवासी दाखला": "रहिवासी दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "जात प्रमाणपत्र": "जात प्रमाणपत्रासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "नॉन क्रिमिलियर दाखला": "नॉन क्रिमिलियर दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "ईडब्ल्यूएस (EWS) दाखला": "EWS दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "एसईबीसी (SEBC) दाखला": "SEBC दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "जात पडताळणी": "जात पडताळणी प्रमाणपत्रासाठी अर्ज प्रक्रियेत सहाय्य.",
+        "डोंगरी दाखला": "डोंगरी दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य."
+      };
+
+      root.addEventListener("click", function (event) {
+        const toggle = event.target.closest("[data-toggle]");
+
+        if (toggle && root.contains(toggle)) {
+          const dropdown = toggle.closest(".service-dropdown");
+          const wasOpen = dropdown.classList.contains("open");
+
+          root.querySelectorAll(".service-dropdown.open").forEach(function (item) {
+            item.classList.remove("open");
+          });
+
+          if (!wasOpen) {
+            dropdown.classList.add("open");
+          }
+          return;
+        }
+
+        const button = event.target.closest("[data-service]");
+        if (!button || !root.contains(button)) return;
+
+        const service = button.getAttribute("data-service");
+
+        root.querySelectorAll(".service-dropdown.open").forEach(function (item) {
+          item.classList.remove("open");
+        });
+
+        root.querySelector("#service-title").textContent = service;
+        root.querySelector("#service-description").textContent =
+          descriptions[service] ||
+          "या सेवेसाठी अर्ज प्रक्रिया, आवश्यक कागदपत्रे आणि लागू शुल्क यांची माहिती माऊली ई सेवा केंद्रात मिळवा.";
+
+        root.querySelector("#service-details").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      });
+    })();
+  </script>
 </section>
 
 <section class="info-section" id="about">
