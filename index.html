@@ -466,11 +466,28 @@ footer p {
   </div>
 
   <div class="service-details" id="service-details" aria-live="polite">
-    <h3 id="service-title">सेवेची माहिती</h3>
-    <p id="service-description">
-      वरील यादीमधून सेवेचे बटण निवडा. त्या सेवेची माहिती येथे दिसेल.
-    </p>
-  </div>
+  <h3 id="service-title">सेवेची माहिती</h3>
+
+  <h4>सेवेबद्दल माहिती</h4>
+  <p id="service-description">
+    वरील यादीमधून सेवेचे बटण निवडा.
+  </p>
+
+  <h4>आवश्यक कागदपत्रे</h4>
+  <ul id="service-documents">
+    <li>सेवा निवडल्यानंतर आवश्यक कागदपत्रांची माहिती येथे दिसेल.</li>
+  </ul>
+
+  <h4>अर्ज प्रक्रिया</h4>
+  <ol id="service-process">
+    <li>सेवा निवडल्यानंतर अर्ज प्रक्रियेची माहिती येथे दिसेल.</li>
+  </ol>
+
+  <h4>महत्त्वाची सूचना</h4>
+  <p id="service-notice">
+    आवश्यक कागदपत्रे, पात्रता आणि सरकारी शुल्क सेवेनुसार बदलू शकतात.
+  </p>
+</div>
 
   <script>
     (function () {
@@ -517,6 +534,28 @@ footer p {
         "जात पडताळणी": "जात पडताळणी प्रमाणपत्रासाठी अर्ज प्रक्रियेत सहाय्य.",
         "डोंगरी दाखला": "डोंगरी दाखल्यासाठी अर्ज प्रक्रियेत सहाय्य."
       };
+      const serviceDetails = Object.fromEntries(
+  Object.entries(descriptions).map(([service, description]) => [
+    service,
+    {
+      description: description,
+      documents: [
+        "आधार कार्ड",
+        "संबंधित सेवेसाठी आवश्यक पुरावा",
+        "मोबाईल नंबर",
+        "सेवेनुसार आवश्यक इतर कागदपत्रे"
+      ],
+      process: [
+        "ग्राहकाच्या कागदपत्रांची तपासणी केली जाईल.",
+        "आवश्यक माहिती भरून ऑनलाइन अर्ज केला जाईल.",
+        "अर्ज सादर केल्यानंतर पावती किंवा अर्ज क्रमांक दिला जाईल.",
+        "अर्जाची स्थिती तपासून पुढील माहिती दिली जाईल."
+      ],
+      notice:
+        "ही सर्वसाधारण माहिती आहे. अचूक कागदपत्रे, पात्रता, प्रक्रिया आणि सरकारी शुल्क संबंधित विभागाच्या नियमांनुसार बदलू शकतात."
+    }
+  ])
+);
 
       root.addEventListener("click", function (event) {
         const toggle = event.target.closest("[data-toggle]");
@@ -544,17 +583,47 @@ footer p {
           item.classList.remove("open");
         });
 
+        const info = serviceDetails[service] || {
+          description: descriptions[service] ||
+            "या सेवेसाठी अधिक माहितीसाठी माऊली ई सेवा केंद्राशी संपर्क साधा.",
+          documents: [
+            "आधार कार्ड",
+            "मोबाईल नंबर",
+            "सेवेनुसार आवश्यक अतिरिक्त कागदपत्रे"
+          ],
+          process: [
+            "आवश्यक कागदपत्रांची तपासणी केली जाईल.",
+            "अर्जातील माहिती भरून ऑनलाइन अर्ज सादर केला जाईल.",
+            "अर्जाची पावती किंवा स्थिती ग्राहकाला दिली जाईल."
+          ],
+          notice: "पात्रता, आवश्यक कागदपत्रे आणि सरकारी शुल्क संबंधित विभागाच्या नियमांनुसार बदलू शकतात."
+        };
+
         root.querySelector("#service-title").textContent = service;
-        root.querySelector("#service-description").textContent =
-          descriptions[service] ||
-          "या सेवेसाठी अर्ज प्रक्रिया, आवश्यक कागदपत्रे आणि लागू शुल्क यांची माहिती माऊली ई सेवा केंद्रात मिळवा.";
+        root.querySelector("#service-description").textContent = info.description;
+
+        const docsList = root.querySelector("#service-documents");
+        docsList.replaceChildren();
+        info.documents.forEach(function (doc) {
+          const li = document.createElement("li");
+          li.textContent = doc;
+          docsList.appendChild(li);
+        });
+
+        const processList = root.querySelector("#service-process");
+        processList.replaceChildren();
+        info.process.forEach(function (step) {
+          const li = document.createElement("li");
+          li.textContent = step;
+          processList.appendChild(li);
+        });
+
+        root.querySelector("#service-notice").textContent = info.notice;
 
         root.querySelector("#service-details").scrollIntoView({
           behavior: "smooth",
           block: "nearest"
         });
-      });
-    })();
   </script>
 </section>
 
