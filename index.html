@@ -6,92 +6,221 @@
 <meta name="description" content="माऊली ई सेवा केंद्र, आर के नगर, पाचगाव, कोल्हापूर. ऑनलाइन सेवा आणि शासकीय अर्जांसाठी सहाय्य.">
 <title>माऊली ई सेवा केंद्र | कोल्हापूर</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  color:#19334e;
-  background:#f4f8fc;
-  line-height:1.7
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-header{
-  color:white;
-  background:linear-gradient(135deg,#06366d,#087fbd);
-  padding:24px 18px;
-  text-align:center
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  line-height: 1.7;
+  color: #243247;
+  background: #f3f7fc;
 }
-.brand-small{font-size:13px;letter-spacing:2px;color:#d8edff}
-header h1{font-size:clamp(29px,5vw,44px);margin:5px 0}
-header p{margin:0}
-nav{
-  background:#062b54;
-  padding:12px 8px;
-  text-align:center
+
+header {
+  background: linear-gradient(135deg, #063b85, #0879cf);
+  color: white;
+  padding: 35px 18px;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(0, 45, 100, 0.2);
 }
-nav a{
-  color:white;
-  text-decoration:none;
-  display:inline-block;
-  padding:4px 9px;
-  font-size:14px
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 800;
 }
-nav a:hover{text-decoration:underline}
-.hero{
-  background:white;
-  padding:48px 18px;
-  text-align:center
+
+header p {
+  margin: 5px 0;
 }
-.hero h2{font-size:clamp(25px,4vw,35px);color:#0755a0;margin:0 0 12px}
-.hero p{max-width:720px;margin:0 auto 18px}
-.btn{
-  display:inline-block;
-  background:#075ba5;
-  color:white;
-  text-decoration:none;
-  padding:11px 20px;
-  border-radius:7px;
-  margin:6px 4px;
-  font-weight:bold
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
-.btn-green{background:#16834b}
-.container{max-width:1080px;margin:auto;padding:36px 18px}
-.section-title{text-align:center;color:#0755a0;font-size:27px;margin:0 0 8px}
-.intro{text-align:center;color:#5a6c7e;max-width:720px;margin:0 auto 25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
-.card{
-  background:white;
-  border:1px solid #e0eaf4;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 4px 15px rgba(15,55,90,.05)
+
+nav a {
+  color: #0755a0;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 13px;
+  border-radius: 25px;
+  transition: 0.2s;
 }
-.card h3{margin:0 0 7px;color:#0755a0;font-size:19px}
-.card p{margin:0;color:#53677b;font-size:14px}
-.info-section{background:#eaf4ff}
-.contact-card{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  border:1px solid #e0eaf4;
-  overflow-wrap:anywhere
+
+nav a:hover {
+  color: white;
+  background: #086ac0;
 }
-.contact-card h3{margin-top:0;color:#0755a0}
-.contact-card a{color:#0755a0}
-.notice{
-  background:#fff6dd;
-  border-left:4px solid #e0a400;
-  padding:14px 17px;
-  border-radius:5px;
-  font-size:13px;
-  margin-top:22px
+
+.container {
+  width: min(1120px, 92%);
+  margin: 30px auto;
 }
-footer{background:#062b54;color:white;text-align:center;padding:24px 15px;font-size:13px}
-footer p{margin:4px}
-@media(max-width:600px){
-  nav a{padding:5px;font-size:13px}
-  .container{padding:28px 14px}
-  .hero{padding:36px 16px}
+
+.hero {
+  padding: 42px 22px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #0755a0, #1398e8);
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0, 75, 150, 0.16);
+}
+
+.hero h2 {
+  margin-top: 0;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.hero p {
+  max-width: 750px;
+  margin: 12px auto;
+}
+
+h2, h3 {
+  line-height: 1.4;
+}
+
+.container > h2 {
+  color: #064b91;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.services-grid,
+.service-grid,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 20px;
+}
+
+.service-card,
+.card {
+  background: #ffffff;
+  padding: 23px;
+  border-radius: 17px;
+  border: 1px solid #e1ebf7;
+  box-shadow: 0 5px 18px rgba(20, 70, 120, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover,
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(20, 70, 120, 0.13);
+}
+
+.service-card h3,
+.card h3 {
+  color: #0755a0;
+  margin-top: 0;
+}
+
+a.button,
+.button,
+.service-card a,
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 17px;
+  background: #0879cf;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 25px;
+  transition: background 0.2s;
+}
+
+a.button:hover,
+.button:hover,
+.service-card a:hover,
+.card a:hover {
+  background: #064b91;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+#about,
+#contact {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid #e1ebf7;
+  box-shadow: 0 5px 18px rgba(20, 70, 120, 0.06);
+}
+
+#contact a {
+  color: #0755a0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin-top: 35px;
+  padding: 25px 16px;
+  text-align: center;
+  color: #ffffff;
+  background: #07376d;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 27px 14px;
+  }
+
+  nav {
+    gap: 5px;
+    padding: 8px 5px;
+  }
+
+  nav a {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 22px auto;
+  }
+
+  .hero {
+    padding: 30px 17px;
+    border-radius: 16px;
+  }
+
+  .services-grid,
+  .service-grid,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card,
+  .card {
+    padding: 20px;
+  }
+
+  #about,
+  #contact {
+    padding: 21px;
+  }
 }
 </style>
 </head>
